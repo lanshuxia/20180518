@@ -1,0 +1,106 @@
+body,html,p,a,input,form,h1,h2,h3,h4,h5,h6,ul,li,dl,dd,dt{
+    margin:0;
+    padding:0;
+}
+ul,li{
+    list-style: none;
+}
+*{
+    box-sizing: border-box;
+}
+.orderList{
+    padding:0 0.4rem;
+    overflow: hidden;
+}
+.orderList a{
+    color:#000;
+    display: block;
+    overflow: hidden;
+}
+.orderList_con{
+    width:100%;
+    height:1.3rem;
+}
+.orderList_left{
+    width:9.5%;
+    height:100%;
+    padding:0.3rem 0;
+    margin-right:3.5%;
+    float: left;
+}
+.orderList_left img{
+    display: block;
+    width:0.6rem;
+    height:0.6rem;
+}
+.orderList_right{
+    width:87%;
+    height:100%;
+    float: left;
+    line-height:1.725;
+    /*padding:0.2rem 0;*/
+    border-bottom:1px solid #d8d8d8;
+}
+.orderList_right li{
+    height:100%;
+    float: left;
+}
+.list_type{
+    width:38%;
+    padding:0.2rem 0;
+}
+
+.list_type .list_type_type{
+    font-size:28px;
+    text-overflow: ellipsis;
+    white-space:nowrap;
+    overflow: hidden;
+}
+.list_type .list_type_time{
+    font-size:20px;
+    color:#999;
+}
+.list_price{
+    width:32%;
+    text-align: center;
+    font-size:28px;
+    line-height:1.3rem;
+}
+.list_stats{
+    position:relative;
+    width:29%;
+    font-size:28px;
+    text-align: center;
+    line-height:1.3rem;
+    font-weight: 700;
+    color:#000;
+}
+.list_stats:after{
+    content: " ";
+    display: inline-block;
+    height: 15px;
+    width: 15px;
+    border-width: 3px 3px 0 0;
+    border-color: #c8c8cd;
+    border-style: solid;
+    -webkit-transform: matrix(.71,.71,-.71,.71,0,0);
+    transform: matrix(.71,.71,-.71,.71,0,0);
+    position: absolute;
+    top: 50%;
+    margin-top: -7px;
+    right: 2px;
+}
+/*暂无订单*/
+.no_order{
+    height:200px;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto auto;
+    text-align: center;
+}
+.no_order p{
+    font-size:28px;
+}

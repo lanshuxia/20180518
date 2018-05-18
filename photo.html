@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>打印照片</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no">
+    <link rel="stylesheet" href="css/tinyImgUpload.css">
+    <link rel="stylesheet" href="css/swiper-4.2.2.min.css">
+    <link rel="stylesheet" href="css/photo.css">
+    <script src="js/jquery.min.js"></script>
+    <script src="js/swiper-4.2.2.min.js"></script>
+    <script src="js/public.js"></script>
+    <script src="js/tinyImgUpload.js"></script>
+    <style>
+        .shadeImg{
+            position: absolute;
+            display: none;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: 15;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.55);}
+        .showImg{
+/*            width: 400px;
+            height: 500px;*/
+            /*margin-top: 50%;*/
+            width:100%;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!--banner_con--开始-->
+    <div class="banner_con">
+        <!-- Swiper -->
+        <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide"><img src="img/banner_01.png" alt=""></div>
+                <div class="swiper-slide"><img src="img/banner_01.png" alt=""></div>
+                <div class="swiper-slide"><img src="img/banner_01.png" alt=""></div>
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+    </div>
+    <!--banner_con--结束-->
+    <!--list--开始-->
+    <!--list-nav-con--开始-->
+    <div class="list_con">
+        <ul class="list_nav_con">
+            <a href="index.html#products" class="list_one">
+                <li>
+                    <div  class="nav_icon nav_icon_one">
+                        <p>饮品</p>
+                    </div>
+                </li>
+            </a>
+
+            <a href="index.html#datas" class="list_two">
+                <li>
+                    <div  class="nav_icon nav_icon_two">
+                        <p>数据线</p>
+                    </div>
+                </li>
+            </a>
+
+            <a href="#ccc"  class="list_three">
+                <li>
+                    <div  class="nav_icon nav_icon_three">
+                        <p>纸巾</p>
+                    </div>
+                </li>
+            </a>
+
+            <a href="#ddd"  class="list_four">
+                <li>
+                    <div  class="nav_icon nav_icon_four">
+                        <p>打印</p>
+                    </div>
+                </li>
+            </a>
+        </ul>
+        <!--list-nav-con--结束-->
+        <!--photo--开始-->
+        <div class="photo_con">
+            <div id="upload"></div>
+            <div class="shadeImg">
+                <img class="showImg" src="">
+            </div>
+        </div>
+        <!--photo--结束-->
+    </div>
+    <!--list--结束-->
+
+    <!--footer--开始-->
+    <div class="footer_con">
+        <div class="footer">
+            <div class="footer_left">
+                <div class="cart_icon">
+                    <div class="cart_icon_number"><span>1</span></div>
+                </div>
+                <div class="cart_title_con">
+                    <span>共计消费 :</span>
+                    <span class="cart_title_con_price"><sub>￥</sub><span>0.00</span></span>
+                </div>
+            </div>
+            <div class="footer_right">
+                <div class="footer_pay">确认支付</div>
+            </div>
+        </div>
+    </div>
+    <!--footer--结束-->
+
+    <!--个人中心--开始-->
+    <a href="userInfo.html"><div class="per_icon"></div></a>
+    <!--个人中心--结束-->
+
+</div>
+</body>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+    var options = {
+        path: '/',
+        onSuccess: function (res) {
+            console.log(res);
+        },
+        onFailure: function (res) {
+            console.log(res);
+        }
+    }
+
+    tinyImgUpload('#upload', options);
+
+</script>
+</html>

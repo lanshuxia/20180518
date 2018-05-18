@@ -1,0 +1,100 @@
+#img-container {
+
+}
+#img-container:after {
+    content: '.';
+    display: block;
+    height: 0;
+    visibility: hidden;
+    overflow: hidden;
+    clear: both;
+}
+.img-thumb{
+    position: relative;
+    float: left;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    height: 4.2rem;
+    width: 48.5%;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+.img-up-add{
+    position: relative;
+    float: left;
+    margin-right: 3%;
+    margin-bottom: 3%;
+    height: 4.2rem;
+    width: 100%;
+    box-sizing: border-box;
+}
+    /*.img-item {
+        position: relative;
+        float: left;
+        margin-right: 3%;
+        margin-bottom: 3%;
+        height: 4.2rem;
+        width: 48.5%;
+        box-sizing: border-box;
+    }*/
+.img-item:nth-child(2n){
+    margin-right:0;
+}
+.img-thumb {
+    border: 1px solid #000;
+}
+.thumb-icon {
+    width: 100%;
+    position:absolute;
+    top:50%;
+    transform: translateY(-50%);
+    /*height: 100%;*/
+}
+.img-up-add {
+    background: -webkit-linear-gradient(to right,#4bd6bd,#0494b6);
+    background: -o-linear-gradient(to right,#4bd6bd,#0494b6);
+    background: -moz-linear-gradient(to right,#4bd6bd,#0494b6);
+    background: linear-gradient(to right,#4bd6bd,#0494b6);
+    display: table;
+}
+.img-add-icon {
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    background: url(../img/photo_icon.png) no-repeat center;
+}
+.img-remove {
+    position: absolute;
+    /*right: -0.1875rem;
+    top: -0.1875rem;*/
+    display: none;
+    width:100%;
+    height:0.6rem;
+    bottom:0;
+    left:0;
+    /*width: 0.375rem;
+    height: 0.375rem;
+    border-radius: 50%;*/
+    /*background: #f7333d;*/
+    /*color: #fff;*/
+    /*display: none;*/
+    text-align: center;
+    text-decoration: none;
+    font-size: 0.25rem;
+    overflow: hidden;
+    background-clip: padding-box;
+    background: url(../img/delete.png) no-repeat center;
+    background-size:contain;
+}
+#img-file-input {
+    display: none;
+}
+.mask_con{
+    position:absolute;
+    top:0;
+    background: url(../img/loading.gif) rgba(0,0,0,0.5) no-repeat center;
+    width:100%;
+    height:100%;
+    display: none;
+    z-index: 999;
+}

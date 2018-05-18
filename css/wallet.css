@@ -1,0 +1,76 @@
+body,html,p,a,input,form,h1,h2,h3,h4,h5,h6,ul,li,dl,dd,dt{
+    margin:0;
+    padding:0;
+}
+ul,li{
+    list-style: none;
+}
+*{
+    box-sizing: border-box;
+}
+.orderList{
+    padding:0 0.4rem;
+    overflow: hidden;
+}
+.orderList a{
+    color:#000;
+    display: block;
+    overflow: hidden;
+}
+.orderList_con{
+    width:100%;
+    height:1.3rem;
+}
+.orderList_left{
+    width:9.5%;
+    height:100%;
+    padding:0.3rem 0;
+    margin-right:3.5%;
+    float: left;
+}
+.orderList_left img{
+    display: block;
+}
+.orderList_right{
+    width:87%;
+    height:100%;
+    float: left;
+    border-bottom:1px solid #d8d8d8;
+}
+.orderList_right li{
+    height:100%;
+    float: left;
+}
+.list_type{
+    width:50%;
+    padding:0.2rem 0;
+    line-height:1.725;
+}
+.list_type .list_type_type{
+    font-size:28px;
+}
+.list_type .list_type_time{
+    font-size:20px;
+    color:#999
+}
+.list_price{
+    width:50%;
+    text-align: right;
+    font-size:28px;
+    font-weight: 700;
+    line-height:1.3rem;
+}
+/*暂无订单*/
+.no_order{
+    height:200px;
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    margin:auto auto;
+    text-align: center;
+}
+.no_order p{
+    font-size:28px;
+}

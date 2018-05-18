@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script src="js/jquery.min.js"></script>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+
+        }
+        #ad{
+            width:98%;background:#fff;margin:0 auto;margin-top:0.5rem;
+        }
+        .request_title{
+            width:100%;
+            height:2rem;
+            line-height: 2rem;
+
+            font-size:0.9rem;
+            padding-left:0.5rem;
+        }
+        .request_select2{
+            width:98%;
+            min-height:5rem;
+            margin:0 auto;
+            margin-left:0.5rem;
+        }
+        #pink {
+            width: 100%;
+            height: 4rem;
+        }
+
+
+        .request_select2 #pink .dd{
+            width:4rem;
+            height:4rem;
+            background:#fff;
+            color:#9a9a9a;
+            border:0.1rem solid #9a9a9a;
+            float:left;
+            position:relative;
+            z-index:3;
+
+        }
+
+        .request_select2 #pink .dd input {
+            position:relative;
+            opacity: 0;
+            display: block;
+            height: 100%;
+            width: 100%;
+            z-index:998;
+        }
+        .request_select2 #pink .dd span{
+            /* float:left;
+           margin-top:-2.7rem;
+            margin-left:1.4rem;*/
+            text-align:center;
+            width:1.5rem;
+            height:1.5rem;
+
+            font-size:1.5rem;
+            margin:auto;
+            position:absolute;
+            top:0;
+            left:0;
+            bottom:0;
+            right:0;
+            z-index:5;
+        }
+        .request_select2  .yy{
+            display:inline-table;
+            width:4rem;
+            height:4rem;
+            float:left;
+        }
+        .request_btn{
+            display:block;
+            width:98%;
+            height:2.5rem;
+            background:#4caf50;
+            margin:0 auto;
+            border-radius:0.2rem;
+            margin-top:1rem;
+            color:#fff;
+        }
+        .hidden{
+            display:none;
+        }
+        .show{
+            display:inline-block;
+        }
+        #dd{
+            float:right;height:2rem;width:20%;background:#fff;text-align:right;padding-right:0.5rem;
+        }
+        #over{
+            float:right;height:2rem;width:20%;background:#ff586e;;color:#fff;text-align:center;
+        }
+        .cel{
+            display:none;z-index:988;height:4rem;width:4rem;background: rgba(14, 14, 14, 0.85);margin:0;padding:0;line-height:4rem;text-align:center;color: #fff;position:relative;top:0;
+        }
+        .cel1{
+            display:block;z-index:988;height:4rem;width:4rem;background: rgba(14, 14, 14, 0.85);margin:0;padding:0;line-height:4rem;text-align:center;color: #fff;position:relative;top:0;
+        }
+        .ch{
+            display:inline-block;transform:rotate(45deg);font-size:1.4rem;/*;height:1.4rem;line-height: 1.4rem;width:1.4rem;background:red;*/margin:auto;position:absolute;top:0;left:0;bottom: 0;right:0;text-align: center;border-radius: 50%;padding-left:-0.5rem;
+        }
+        .ci{
+            margin-right:0.5rem;z-index:888;float:left;
+        }
+    </style>
+</head>
+<body>
+<div id="ad">
+    <div class="request_title"><span style="float:left;height:2rem;width:40%">图片说明</span><span class="show" id="dd">编辑</span><span id="over" class="hidden">完成</span></div>
+    <div class="request_select2" id="ss">
+        <div id="pink">
+            <div class="dd"><input type="file" name="file1" id="ad_doc1" accept="image/*" onchange="cnm(this)"><span>+</span></div>
+        </div>
+    </div>
+</div>
+<button type="submit" class="request_btn" style="width:98%">提交</button></form>
+</body>
+<script>
+    mui.previewImage();
+
+    document.getElementById("dd").onclick=function(){
+        var tt=document.getElementsByClassName("yy");
+        if(tt.length>0){
+
+            var a1=document.getElementById("pink");
+            var a2=a1.getElementsByClassName("yy");
+
+            for( var i=0;i<a2.length;i++){
+                a2[i].getElementsByTagName("div")[0].className="cel1";
+
+            }
+            document.getElementById("dd").className="hidden";
+            document.getElementById("over").className="show";
+            document.getElementsByClassName("dd")[0].className="dd hidden";
+        };
+
+
+        document.getElementById("over").onclick=function() {
+
+            var a1 = document.getElementById("pink");
+            var a2 = a1.getElementsByClassName("yy");
+
+            for (var i = 0; i < a2.length; i++) {
+                a2[i].getElementsByTagName("div")[0].className = "cel";
+
+            }
+            document.getElementById("dd").className = "show";
+            document.getElementById("over").className = "hidden";
+
+            document.getElementsByClassName("dd")[0].className = "dd";
+        }
+
+
+    };
+
+
+
+
+    function removeOption(obj){
+        obj.parentNode.parentNode.previousElementSibling.remove();//previousElementSibling是获取上一个兄弟结点
+        obj.parentNode.parentNode.remove();
+
+    }
+    function cnm(obj){
+        var ab=document.getElementById("pink");
+        var cd=ab.getElementsByClassName("yy");
+        if(cd.length<3){
+            var a1=obj.getAttribute("name");
+            var a2=a1.substr(a1.length-1,1);//获取名字的最后一位字符，（start，）
+            var a3=parseInt(a2);//将字符串转换成数字类型
+            obj.parentNode.className="hidden";
+            var a4=a3+1;
+            var ad_doc="ad_doc"+a4;
+            var file="file"+a4;
+            var old_doc="ad_doc"+a3;
+            var ad_img="ad_img"+a3;
+            var para=document.createElement("div");
+            para.className="dd";
+            para.innerHTML="<input  type='file' name='"+file+"' id='"+ad_doc+"'  accept='image/*' onchange='cnm(this)' /><span >+</span>";
+            obj.parentNode.parentNode.appendChild(para);
+            var para2=document.createElement("div");
+            para2.className="yy";
+            para2.innerHTML=" <img class='hidden ci'  id='"+ad_img+"' src='./images/5.jpg' width='64' height='64'  style='margin-right:0.5rem' data-preview-src='' data-preview-group='1'/><div class='hidden cel' ><span class='ch'  onclick='removeOption(this)' >+</span></div></div>";
+
+            document.getElementById("pink").insertBefore(para2,document.getElementById("pink").lastChild);
+            setImagePreview(old_doc,ad_img,'64','64');
+        }else{
+            alert("只能上傳三張圖片！");
+        }
+    }
+    //下面用于图片上传预览功能
+    function setImagePreview(doc,preview,width,height) {
+        //input
+        var docObj = document.getElementById(doc);
+        //img
+        var imgObjPreview = document.getElementById(preview);
+        //div
+        var divs = document.getElementById("localImag");
+        if (docObj.files && docObj.files[0]) {
+            //火狐下，直接设img属性
+            imgObjPreview.style.display = 'block';
+            imgObjPreview.style.width = width+'px';
+            imgObjPreview.style.height = height+'px';
+            //imgObjPreview.src = docObj.files[0].getAsDataURL();
+            //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+            imgObjPreview.src = window.URL.createObjectURL(docObj.files[0]);
+            imgObjPreview.className="";
+            imgObjPreview.className="show ci";
+        } else {
+            //IE下，使用滤镜
+            docObj.select();
+            var imgSrc = document.selection.createRange().text;
+            var localImagId = document.getElementById("localImag");
+            //必须设置初始大小
+            localImagId.style.width = width+"px";
+            localImagId.style.height = height+"px";
+            //图片异常的捕捉，防止用户修改后缀来伪造图片
+            try {
+                localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+            } catch(e) {
+                alert("您上传的图片格式不正确，请重新选择!");
+                return false;
+            }
+            imgObjPreview.style.display = 'none';
+            document.selection.empty();
+        }
+        return true;
+    }
+</script>
+</html>

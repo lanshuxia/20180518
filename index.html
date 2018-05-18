@@ -1,0 +1,158 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>街柜</title>
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <meta name="description" content="Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
+">
+    <link rel="stylesheet" href="css/swiper-4.2.2.min.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/layer.css">
+</head>
+<body>
+<div class="container">
+    <div class="header_con">
+        <!--banner_con--开始-->
+        <div class="banner_con">
+            <!-- Swiper -->
+            <div class="swiper-container">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide"><img src="img/banner_01.png" alt=""></div>
+                    <div class="swiper-slide"><img src="img/banner_01.png" alt=""></div>
+                    <div class="swiper-slide"><img src="img/banner_01.png" alt=""></div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <!--banner_con--结束-->
+        <!--list-nav-con--开始-->
+        <ul class="list_nav_con">
+            <a href="#products"  class="list_one" onclick="button(1)">
+                <li>
+                    <div  class="nav_icon nav_icon_one">
+                       <p>饮品</p>
+                    </div>
+                </li>
+            </a>
+
+            <a href="#datas"  class="list_two" onclick="button(2)">
+                <li>
+                    <div class="nav_icon nav_icon_two" >
+                        <p>数据线</p>
+                    </div>
+                </li>
+            </a>
+
+            <a href="#tissue"  class="list_three" onclick="button(3)">
+                <li>
+                    <div  class="nav_icon nav_icon_three">
+                        <p>纸巾</p>
+                    </div>
+                </li>
+            </a>
+
+            <a href="photo.html" class="list_four" onclick="button(4)">
+                <li>
+                    <div  class="nav_icon nav_icon_four">
+                        <p>打印</p>
+                    </div>
+                </li>
+            </a>
+        </ul>
+        <!--list-nav-con--结束-->
+    </div>
+
+
+    <!--list--开始-->
+    <div class="list_con">
+        <div class="list_item">
+            <!--list-products--开始-->
+            <div class="products_con">
+                <!--饮品--开始-->
+                <div id="products">
+                    <p class="title">饮品</p>
+                    <ul class="products_list" id="products_list">
+                    </ul>
+                </div>
+
+                <div id="datas">
+                    <p class="title">数据线</p>
+                    <ul class="products_list" id="data_line"></ul>
+                </div>
+
+                <div id="tissue">
+                    <p class="title">纸巾</p>
+                    <ul class="products_list" id="tissue_con"></ul>
+                </div>
+            </div>
+            <!--list-products--结束-->
+        </div>
+    </div>
+    <!--list--结束-->
+
+    <!--footer--开始-->
+    <div class="footer_con">
+        <div class="footer">
+            <div class="footer_left">
+                <div class="cart_icon">
+                    <div class="cart_icon_number"><span>0</span></div>
+                </div>
+                <div class="cart_title_con">
+                    <span>共计消费 :</span>
+                    <span class="cart_title_con_price"><b>￥</b><span>0.00</span></span>
+                </div>
+            </div>
+            <div class="footer_right">
+                <div class="footer_pay">去支付</div>
+            </div>
+        </div>
+    </div>
+    <!--footer--结束-->
+
+    <!--个人中心--开始-->
+    <a href="userInfo.html"><div class="per_icon"></div></a>
+    <!--个人中心--结束-->
+</div>
+</body>
+<script src="js/swiper-4.2.2.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<script src="js/public.js"></script>
+<script src="js/index.js"></script>
+<script src="js/base.js"></script>
+<script src="js/layer.js"></script>
+<!-- Initialize Swiper -->
+<script>
+    var swiper = new Swiper('.swiper-container', {
+        pagination: {
+            el: '.swiper-pagination',
+        },
+    });
+    var height = $('body').height();
+    var headerH = $('.header_con').height();
+    var footerH = $('.footer_con').height();
+    var H = height-headerH-footerH;
+    $('.list_con').css({'height':H,'marginTop':headerH})
+    //点击按钮
+    function button(index){
+        if(index == 1){
+            $('.list_one').css("background", "linear-gradient(to right,#f0bf0d,#f87022)").siblings().css('background','#02acc9');
+        }
+        if(index == 2){
+            $('.list_two').css("background", "linear-gradient(to right,#4dd7bd,#0494b6)").siblings().css('background','#02acc9');
+        }
+        if(index == 3){
+            $('.list_three').css("background", "linear-gradient(to right,#22c7dd,#6461ec)").siblings().css('background','#02acc9');
+        }
+        if(index == 4){
+            $('.list_four').css("background", "linear-gradient(to right,#ec718d,#8d72ff)").siblings().css('background','#02acc9');
+        }
+
+    }
+
+</script>
+</html>
